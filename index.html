@@ -440,6 +440,78 @@
           class="row position-relative bg-secondary bg-opacity-10 shadow rounded"
           style="width: 92.7%; left: 80px"
         >
+          <!-- Col Two Start -->
+          <div class="col-4 m-4 bg-light shadow mb-5 bg-body rounded">
+            <h2
+              class="bg-success text-light p-2 position-relative mb-4"
+              style="right: 12px; width: 104%"
+            >
+              New Item
+            </h2>
+
+            <div
+              class="btn-group btn-group-lg justify-content-md-center d-md-flex p-4 m-2"
+              role="group"
+              aria-label="Basic mixed styles example"
+            >
+              <div class="modal-body">
+                <form>
+                  <div class="mb-3">
+                    <label for="code" class="col-form-label">Item Code</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Enter Item Code"
+                      aria-label="Enter Item Code"
+                      id="item_code"
+                    />
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="item-name" class="col-form-label"
+                      >Item Name</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Enter Item Name"
+                      aria-label="Enter Item Name"
+                      id="item_name"
+                    />
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="price" class="col-form-label">Price</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Enter Price"
+                      aria-label="Enter Price"
+                      id="item_price"
+                    />
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="qty" class="col-form-label">Quantity</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Enter Quantity"
+                      aria-label="Enter Quantity"
+                      id="item_qty"
+                    />
+                  </div>
+                </form>
+                <button id="btn_itemAdd" type="button" class="btn btn-primary">
+                  Save
+                </button>
+                <button type="button" class="btn btn-warning">Update</button>
+                <button type="button" class="btn btn-danger">Delete</button>
+              </div>
+            </div>
+          </div>
+          <!-- Col Two End -->
+
           <!-- COl One Start -->
           <div class="col-4 m-4 bg-light shadow mb-5 bg-body rounded">
             <h2
@@ -471,199 +543,18 @@
           </div>
           <!-- COl One End -->
 
-          <!-- Col Two Start -->
-          <div class="col-4 m-4 bg-light shadow mb-5 bg-body rounded">
-            <h2
-              class="bg-success text-light p-2 position-relative mb-4"
-              style="right: 12px; width: 104%"
-            >
-              Item Edit
-            </h2>
-
-            <div
-              class="btn-group btn-group-lg justify-content-md-center d-md-flex p-4 m-2"
-              role="group"
-              aria-label="Basic mixed styles example"
-            >
-              <button type="button" class="btn btn-danger">Delete</button>
-              <button type="button" class="btn btn-warning">Update</button>
-              <button type="button" class="btn btn-primary">Details</button>
-              <button type="button" class="btn btn-success">Clear</button>
-            </div>
-          </div>
-          <!-- Col Two End -->
-
-          <!-- Col Three Start -->
-          <div class="col m-4 mb-5">
-            <div
-              class="btn-group btn-group-lg d-md-flex justify-content-md-end p-2"
-              role="group"
-              aria-label="Basic mixed styles example"
-              style="left: 19px; top: -7px"
-            >
-              <button
-                type="button"
-                class="btn btn-primary"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-                data-bs-whatever="@mdo"
-              >
-                New Item
-              </button>
-              <button type="button" class="btn btn-warning">
-                View All Items
-              </button>
-
-              <!-- Modal Start -->
-              <div
-                class="modal fade"
-                id="exampleModal"
-                tabindex="-1"
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">
-                        New Item
-                      </h5>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-
-                    <div class="modal-body">
-                      <form>
-                        <div class="mb-3">
-                          <label for="code" class="col-form-label"
-                            >Item Code</label
-                          >
-                          <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Enter Item Code"
-                            aria-label="Enter Item Code"
-                            id="code"
-                          />
-                        </div>
-
-                        <div class="mb-3">
-                          <label for="item-name" class="col-form-label"
-                            >Item Name</label
-                          >
-                          <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Enter Item Name"
-                            aria-label="Enter Item Name"
-                            id="item-name"
-                          />
-                        </div>
-
-                        <div class="mb-3">
-                          <label for="price" class="col-form-label"
-                            >Price</label
-                          >
-                          <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Enter Price"
-                            aria-label="Enter Price"
-                            id="price"
-                          />
-                        </div>
-
-                        <div class="mb-3">
-                          <label for="qty" class="col-form-label"
-                            >Quantity</label
-                          >
-                          <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Enter Quantity"
-                            aria-label="Enter Quantity"
-                            id="qty"
-                          />
-                        </div>
-                      </form>
-                    </div>
-
-                    <div class="modal-footer">
-                      <button
-                        type="button"
-                        class="btn btn-secondary"
-                        data-bs-dismiss="modal"
-                      >
-                        Close
-                      </button>
-                      <button type="button" class="btn btn-primary">
-                        Save
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Modal End -->
-            </div>
-          </div>
-          <!-- Col Three End -->
-
           <!-- Col four Start -->
           <div class="col-12 p-3">
             <table class="table table-hover table-borderless">
               <thead style="background-color: #00918d">
                 <tr>
+                  <th class="border-end border-white" scope="col">Item Code</th>
                   <th class="border-end border-white" scope="col">Item Name</th>
                   <th class="border-end border-white" scope="col">Price</th>
                   <th scope="col">Quantity</th>
                 </tr>
               </thead>
-              <tbody class="table-secondary">
-                <tr>
-                  <td>Iphone 7 Plus</td>
-                  <td>70000</td>
-                  <td>50</td>
-                </tr>
-                <tr>
-                  <td>Iphone 7 Plus</td>
-                  <td>70000</td>
-                  <td>50</td>
-                </tr>
-                <tr>
-                  <td>Iphone 7 Plus</td>
-                  <td>70000</td>
-                  <td>50</td>
-                </tr>
-                <tr>
-                  <td>Iphone 7 Plus</td>
-                  <td>70000</td>
-                  <td>50</td>
-                </tr>
-                <tr>
-                  <td>Iphone 7 Plus</td>
-                  <td>70000</td>
-                  <td>50</td>
-                </tr>
-                <tr>
-                  <td>Iphone 7 Plus</td>
-                  <td>70000</td>
-                  <td>50</td>
-                </tr>
-                <tr>
-                  <td>Iphone 7 Plus</td>
-                  <td>70000</td>
-                  <td>50</td>
-                </tr>
-                <tr>
-                  <td>Iphone 7 Plus</td>
-                  <td>70000</td>
-                  <td>50</td>
-                </tr>
-              </tbody>
+              <tbody id="tbl_item" class="table-secondary"></tbody>
             </table>
           </div>
           <!-- Col four End -->
@@ -690,6 +581,77 @@
           class="row position-relative bg-secondary bg-opacity-10 shadow rounded"
           style="width: 92.7%; left: 80px"
         >
+          <!-- Col Two Start -->
+          <div class="col-4 m-4 bg-light shadow mb-5 bg-body rounded">
+            <h2
+              class="bg-success text-light p-2 position-relative mb-4"
+              style="right: 12px; width: 104%"
+            >
+              Customer Edit
+            </h2>
+
+            <div
+              class="btn-group btn-group-lg justify-content-md-center d-md-flex p-4 m-2"
+              role="group"
+              aria-label="Basic mixed styles example"
+            >
+              <div class="modal-body">
+                <form>
+                  <div class="mb-3">
+                    <label for="id" class="col-form-label">ID</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Enter ID"
+                      aria-label="Enter ID"
+                      id="customer_id"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="name" class="col-form-label">Full Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Enter Name"
+                      aria-label="Enter Name"
+                      id="customer_name"
+                    />
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="address" class="col-form-label">Address</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Enter Address"
+                      aria-label="Enter Address"
+                      id="customer_address"
+                    />
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="salary" class="col-form-label">Salary</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Enter Salary"
+                      aria-label="Enter Salary"
+                      id="customer_salary"
+                    />
+                  </div>
+                </form>
+                <input
+                  class="btn btn-primary"
+                  type="button"
+                  value="Add"
+                  id="btn_add"
+                />
+                <button type="button" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-warning">Update</button>
+              </div>
+            </div>
+          </div>
+          <!-- Col Two End -->
           <!-- COl One Start -->
           <div class="col-4 m-4 bg-light shadow mb-5 bg-body rounded">
             <h2
@@ -722,157 +684,6 @@
           </div>
           <!-- COl One End -->
 
-          <!-- Col Two Start -->
-          <div class="col-4 m-4 bg-light shadow mb-5 bg-body rounded">
-            <h2
-              class="bg-success text-light p-2 position-relative mb-4"
-              style="right: 12px; width: 104%"
-            >
-              Customer Edit
-            </h2>
-
-            <div
-              class="btn-group btn-group-lg justify-content-md-center d-md-flex p-4 m-2"
-              role="group"
-              aria-label="Basic mixed styles example"
-            >
-              <button type="button" class="btn btn-danger">Delete</button>
-              <button type="button" class="btn btn-warning">Update</button>
-              <button type="button" class="btn btn-primary">Details</button>
-              <button type="button" class="btn btn-success">Clear</button>
-            </div>
-          </div>
-          <!-- Col Two End -->
-
-          <div class="col m-4 mb-5">
-            <div
-              class="btn-group btn-group-lg d-md-flex justify-content-md-end p-2"
-              role="group"
-              aria-label="Basic mixed styles example"
-              style="left: 19px; top: -7px"
-            >
-              <button
-                type="button"
-                class="btn btn-primary"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal1"
-                data-bs-whatever="@mdo"
-              >
-                New Customer
-              </button>
-              <button type="button" class="btn btn-warning">
-                View All Customers
-              </button>
-
-              <!-- Modal Start -->
-              <div
-                class="modal fade"
-                id="exampleModal1"
-                tabindex="-1"
-                aria-labelledby="exampleModalLabel2"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel2">
-                        New Customers
-                      </h5>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-
-                    <div class="modal-body">
-                      <form>
-                        <div class="mb-3">
-                          <label for="name" class="col-form-label"
-                            >Full Name</label
-                          >
-                          <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Enter Name"
-                            aria-label="Enter Name"
-                            id="name"
-                          />
-                        </div>
-
-                        <div class="mb-3">
-                          <label for="address" class="col-form-label"
-                            >Address</label
-                          >
-                          <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Enter Address"
-                            aria-label="Enter Address"
-                            id="address"
-                          />
-                        </div>
-
-                        <div class="mb-3">
-                          <label for="nic" class="col-form-label">NIC</label>
-                          <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Enter NIC"
-                            aria-label="Enter NIC"
-                            id="nic"
-                          />
-                        </div>
-
-                        <div class="mb-3">
-                          <label for="mobile" class="col-form-label"
-                            >Mobile Number</label
-                          >
-                          <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Enter Mobile Number"
-                            aria-label="Enter Mobile Number"
-                            id="mobile"
-                          />
-                        </div>
-
-                        <div class="mb-3">
-                          <label for="salary" class="col-form-label"
-                            >Salary</label
-                          >
-                          <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Enter Salary"
-                            aria-label="Enter Salary"
-                            id="salary"
-                          />
-                        </div>
-                      </form>
-                    </div>
-
-                    <div class="modal-footer">
-                      <button
-                        type="button"
-                        class="btn btn-secondary"
-                        data-bs-dismiss="modal"
-                      >
-                        Close
-                      </button>
-                      <button type="button" class="btn btn-primary">
-                        Save
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Modal End -->
-            </div>
-          </div>
-          <!-- Col Three End -->
-
           <!-- Col four Start -->
           <div class="col-12 p-3">
             <table class="table table-hover table-borderless">
@@ -884,50 +695,7 @@
                   <th scope="col">Salary</th>
                 </tr>
               </thead>
-              <tbody class="table-secondary">
-                <tr>
-                  <td>001</td>
-                  <td>Kasun</td>
-                  <td>Ampara</td>
-                  <td>100000</td>
-                </tr>
-                <tr>
-                  <td>001</td>
-                  <td>Kasun</td>
-                  <td>Ampara</td>
-                  <td>100000</td>
-                </tr>
-                <tr>
-                  <td>001</td>
-                  <td>Kasun</td>
-                  <td>Ampara</td>
-                  <td>100000</td>
-                </tr>
-                <tr>
-                  <td>001</td>
-                  <td>Kasun</td>
-                  <td>Ampara</td>
-                  <td>100000</td>
-                </tr>
-                <tr>
-                  <td>001</td>
-                  <td>Kasun</td>
-                  <td>Ampara</td>
-                  <td>100000</td>
-                </tr>
-                <tr>
-                  <td>001</td>
-                  <td>Kasun</td>
-                  <td>Ampara</td>
-                  <td>100000</td>
-                </tr>
-                <tr>
-                  <td>001</td>
-                  <td>Kasun</td>
-                  <td>Ampara</td>
-                  <td>100000</td>
-                </tr>
-              </tbody>
+              <tbody id="tbl_Customer" class="table-secondary"></tbody>
             </table>
           </div>
           <!-- Col four End -->
@@ -938,6 +706,12 @@
 
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/JQuery/jquery-3.6.4.min.js"></script>
+
+    <script type="module" src="db/DB.js"></script>
+    <script type="module" src="controller/CustomerController.js"></script>
+    <script type="module" src="model/Customer.js"></script>
+    <script type="module" src="model/Item.js"></script>
+    <script type="module" src="controller/ItemController.js"></script>
 
     <script>
       // Hide All Content
