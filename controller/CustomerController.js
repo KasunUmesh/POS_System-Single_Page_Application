@@ -7,6 +7,7 @@ export class CustomerController {
     this.handleSaveCustomer.bind(this);
     this.handelLoadCustomer();
     this.handelClearInput();
+    this.handelLoadDateTextField();
   }
 
   handleSaveCustomerValidation() {
@@ -77,6 +78,21 @@ export class CustomerController {
     $("#customer_name").val("");
     $("#customer_address").val("");
     $("#customer_salary").val("");
+  }
+
+  handelLoadDateTextField() {
+    $("#tbl_Customer").on("click", ".row-data", function () {
+      let customer_id = $(this).children("td:eq(0)").text();
+      let customer_name = $(this).children("td:eq(1)").text();
+      let customer_address = $(this).children("td:eq(2)").text();
+      let customer_salary = $(this).children("td:eq(3)").text();
+
+      $("#customer_id").val(customer_id);
+      $("#customer_name").val(customer_name);
+      $("#customer_address").val(customer_address);
+      $("#customer_salary").val(customer_salary);
+    });
+    this.handelClearInput();
   }
 }
 
