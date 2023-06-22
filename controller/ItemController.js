@@ -1,5 +1,5 @@
 import { Item } from "../model/Item.js";
-import { saveItemDB, getItemDB, updateItem } from "../db/ItemDB.js";
+import { saveItemDB, getItemDB, updateItem, deleteItem } from "../db/ItemDB.js";
 
 export class ItemController {
   constructor() {
@@ -63,7 +63,18 @@ export class ItemController {
   }
 
   handleDeleteItem() {
-    alert("working");
+    var item_code = $("#item_code").val();
+    var item_name = $("#item_name").val();
+    var item_price = $("#item_price").val();
+    var item_qty = $("#item_qty").val();
+
+    let delete_item = new Item(item_code, item_name, item_price, item_qty);
+
+    if (confirm(`Do you want to Delete Item ${$("#item_code").val()}`)) {
+      deleteItem(delete_item);
+    }
+    this.handleLoadItem();
+    this.handleClearInput();
   }
 
   handleLoadItem() {
