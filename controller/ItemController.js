@@ -1,5 +1,5 @@
 import { Item } from "../model/Item.js";
-import { saveItemDB, getItemDB } from "../db/DB.js";
+import { saveItemDB, getItemDB } from "../db/ItemDB.js";
 
 export class ItemController {
   constructor() {

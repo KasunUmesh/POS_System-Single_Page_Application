@@ -7,16 +7,16 @@ export class Customer {
   }
 
   get customer_id() {
-    return _customer_id;
+    return this._customer_id;
   }
   get customer_name() {
-    return _customer_name;
+    return this._customer_name;
   }
   get customer_address() {
-    return _customer_address;
+    return this._customer_address;
   }
   get customer_salary() {
-    return _customer_salary;
+    return this._customer_salary;
   }
 
   set customer_id(customer_id) {

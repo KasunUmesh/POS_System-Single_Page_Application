@@ -1,9 +1,14 @@
 import { Customer } from "../model/Customer.js";
-import { saveCustomerDB, getCustomerDB } from "../db/DB.js";
+import {
+  saveCustomerDB,
+  getCustomerDB,
+  updateCustomer,
+} from "../db/CustomerDB.js";
 
 export class CustomerController {
   constructor() {
     $("#btn_add").click(this.handleSaveCustomerValidation.bind(this));
+    $("#btn_CustomerUpdate").click(this.handelUpdateCustomer.bind(this));
     this.handleSaveCustomer.bind(this);
     this.handelLoadCustomer();
     this.handelClearInput();
@@ -44,6 +49,24 @@ export class CustomerController {
 
     saveCustomerDB(new_customer);
 
+    this.handelLoadCustomer();
+    this.handelClearInput();
+  }
+
+  handelUpdateCustomer() {
+    var customer_id = $("#customer_id").val();
+    var customer_name = $("#customer_name").val();
+    var customer_address = $("#customer_address").val();
+    var customer_salary = $("#customer_salary").val();
+
+    let update_customer = new Customer(
+      customer_id,
+      customer_name,
+      customer_address,
+      customer_salary
+    );
+
+    updateCustomer(update_customer);
     this.handelLoadCustomer();
     this.handelClearInput();
   }
