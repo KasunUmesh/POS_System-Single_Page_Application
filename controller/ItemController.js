@@ -1,12 +1,15 @@
 import { Item } from "../model/Item.js";
-import { saveItemDB, getItemDB } from "../db/ItemDB.js";
+import { saveItemDB, getItemDB, updateItem } from "../db/ItemDB.js";
 
 export class ItemController {
   constructor() {
     $("#btn_itemAdd").click(this.handleSaveItemValidation.bind(this));
+    $("#btn_itemUpdate").click(this.handleUpdateItem.bind(this));
+    $("#btn_itemDelete").click(this.handleDeleteItem.bind(this));
     this.handleSaveItem.bind(this);
     this.handleLoadItem();
     this.handleClearInput();
+    this.handleLoadItemTextField();
   }
 
   handleSaveItemValidation() {
@@ -36,10 +39,31 @@ export class ItemController {
 
     let new_item = new Item(item_code, item_name, item_price, item_qty);
 
-    saveItemDB(new_item);
+    saveItemDB(new_item)
+      ? alert("Item saved Successfully")
+      : alert("Error when saving");
 
     this.handleLoadItem();
     this.handleClearInput();
+  }
+
+  handleUpdateItem() {
+    var item_code = $("#item_code").val();
+    var item_name = $("#item_name").val();
+    var item_price = $("#item_price").val();
+    var item_qty = $("#item_qty").val();
+
+    let update_item = new Item(item_code, item_name, item_price, item_qty);
+
+    updateItem(update_item)
+      ? alert("Item Updated Successfully")
+      : alert("Error When Updating");
+    this.handleLoadItem();
+    this.handleClearInput();
+  }
+
+  handleDeleteItem() {
+    alert("working");
   }
 
   handleLoadItem() {
@@ -72,6 +96,21 @@ export class ItemController {
     $("#item_name").val("");
     $("#item_price").val("");
     $("#item_qty").val("");
+  }
+
+  handleLoadItemTextField() {
+    $("#tbl_item").on("click", ".row-data", function () {
+      let item_code = $(this).children("td:eq(0)").text();
+      let item_name = $(this).children("td:eq(1)").text();
+      let item_price = $(this).children("td:eq(2)").text();
+      let item_qty = $(this).children("td:eq(3)").text();
+
+      $("#item_code").val(item_code);
+      $("#item_name").val(item_name);
+      $("#item_price").val(item_price);
+      $("#item_qty").val(item_qty);
+    });
+    this.handleClearInput();
   }
 }
 
