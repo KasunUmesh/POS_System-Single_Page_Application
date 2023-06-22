@@ -7,19 +7,19 @@ export class Item {
   }
 
   get item_code() {
-    return _item_code;
+    return this._item_code;
   }
 
   get item_name() {
-    return _item_name;
+    return this._item_name;
   }
 
   get item_price() {
-    return _item_price;
+    return this._item_price;
   }
 
   get item_qty() {
-    return _item_qty;
+    return this._item_qty;
   }
 
   set item_code(item_code) {
