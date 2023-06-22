@@ -31,3 +31,16 @@ export function updateCustomer(update_customer) {
   localStorage.setItem(data, JSON.stringify(data_arr));
   if (pre_customer) return true;
 }
+
+export function deleteCustomer(delete_Customer) {
+  let pre_data = localStorage.getItem(data);
+  let data_arr = JSON.parse(pre_data) || [];
+  let cus_index = data_arr.findIndex(
+    (e) => e._customer_id === delete_Customer.customer_id
+  );
+  if (cus_index !== -1) {
+    data_arr.splice(cus_index, 1);
+    localStorage.setItem(data, JSON.stringify(data_arr));
+    return true;
+  }
+}

@@ -3,12 +3,14 @@ import {
   saveCustomerDB,
   getCustomerDB,
   updateCustomer,
+  deleteCustomer,
 } from "../db/CustomerDB.js";
 
 export class CustomerController {
   constructor() {
     $("#btn_add").click(this.handleSaveCustomerValidation.bind(this));
     $("#btn_CustomerUpdate").click(this.handelUpdateCustomer.bind(this));
+    $("#btn_CustomerDelete").click(this.handelDeleteCustomer.bind(this));
     this.handleSaveCustomer.bind(this);
     this.handelLoadCustomer();
     this.handelClearInput();
@@ -47,7 +49,9 @@ export class CustomerController {
       customer_salary
     );
 
-    saveCustomerDB(new_customer);
+    saveCustomerDB(new_customer)
+      ? alert("Customer saved Successfully")
+      : alert("Error when saving");
 
     this.handelLoadCustomer();
     this.handelClearInput();
@@ -66,7 +70,28 @@ export class CustomerController {
       customer_salary
     );
 
-    updateCustomer(update_customer);
+    updateCustomer(update_customer)
+      ? alert("Customer Updated Successfully")
+      : alert("Error When Updating");
+    this.handelLoadCustomer();
+    this.handelClearInput();
+  }
+
+  handelDeleteCustomer() {
+    var customer_id = $("#customer_id").val();
+    var customer_name = $("#customer_name").val();
+    var customer_address = $("#customer_address").val();
+    var customer_salary = $("#customer_salary").val();
+
+    let delete_customer = new Customer(
+      customer_id,
+      customer_name,
+      customer_address,
+      customer_salary
+    );
+    if (confirm(`Do you want to Delete Customer ${$("#customer_id").val()}`)) {
+      deleteCustomer(delete_customer);
+    }
     this.handelLoadCustomer();
     this.handelClearInput();
   }
