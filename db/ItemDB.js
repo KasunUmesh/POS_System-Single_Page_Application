@@ -29,3 +29,16 @@ export function updateItem(update_Item) {
   localStorage.setItem(data, JSON.stringify(item_arr));
   if (pre_item) return true;
 }
+
+export function deleteItem(delete_Item) {
+  let pre_data = localStorage.getItem(data);
+  let item_arr = JSON.parse(pre_data) || [];
+  let item_index = item_arr.findIndex(
+    (e) => e._item_code === delete_Item.item_code
+  );
+  if (item_index !== -1) {
+    item_arr.splice(item_index, 1);
+    localStorage.setItem(data, JSON.stringify(item_arr));
+    return true;
+  }
+}
