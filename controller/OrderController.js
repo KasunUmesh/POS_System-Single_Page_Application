@@ -22,7 +22,12 @@ export class OrderController {
   }
 
   loadCustomerDetails() {
-    console.log("working");
+    let selected = $("#customerID").val();
+    let selectedCustomer = JSON.parse(selected);
+
+    $("#cusName").val(selectedCustomer._customer_name);
+    $("#cusSalary").val(selectedCustomer._customer_salary);
+    $("#cusAddress").val(selectedCustomer._customer_address);
   }
 }
 
