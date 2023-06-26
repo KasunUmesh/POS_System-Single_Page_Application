@@ -238,34 +238,34 @@
 
             <form class="row">
               <div class="col-6 mb-3">
-                <label for="item" class="col-form-label">Item Code</label>
-                <select class="form-select" aria-label="Default select example">
-                  <option selected>Select Item Code</option>
-                  <option value="1">I001</option>
-                  <option value="2">I002</option>
-                  <option value="3">I003</option>
-                </select>
+                <label for="itemCode" class="col-form-label">Item Code</label>
+                <select
+                  id="itemCode"
+                  name="itemCode"
+                  class="form-select"
+                  aria-label="Default select example"
+                ></select>
               </div>
 
               <div class="col-6 mb-3">
-                <label for="iname" class="col-form-label">Item Name</label>
+                <label for="itemName" class="col-form-label">Item Name</label>
                 <input
                   type="text"
                   class="form-control"
                   placeholder="Enter Item Name"
                   aria-label="Enter Item Name"
-                  id="iname"
+                  id="itemName"
                 />
               </div>
 
               <div class="col-3 mb-3">
-                <label for="price" class="col-form-label">Price</label>
+                <label for="itemPrice" class="col-form-label">Price</label>
                 <input
                   type="text"
                   class="form-control"
                   placeholder="Enter Price"
                   aria-label="Enter Price"
-                  id="price"
+                  id="itemPrice"
                 />
               </div>
 
@@ -281,13 +281,15 @@
               </div>
 
               <div class="col mb-4">
-                <label for="oQty" class="col-form-label">Order Quantity</label>
+                <label for="orderQty" class="col-form-label"
+                  >Order Quantity</label
+                >
                 <input
                   type="text"
                   class="form-control"
                   placeholder="Enter Order Quantity"
                   aria-label="Enter Order Quantity"
-                  id="oQty"
+                  id="orderQty"
                 />
               </div>
               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
