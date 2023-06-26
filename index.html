@@ -180,13 +180,15 @@
               </div>
 
               <div class="col-6 mb-3">
-                <label for="customer" class="col-form-label">Customer ID</label>
-                <select class="form-select" aria-label="Default select example">
-                  <option selected>Select Customer ID</option>
-                  <option value="1">C001</option>
-                  <option value="2">C002</option>
-                  <option value="3">C003</option>
-                </select>
+                <label for="customerID" class="col-form-label"
+                  >Customer ID</label
+                >
+                <select
+                  id="customerID"
+                  name="customerID"
+                  class="form-select"
+                  aria-label="Default select example"
+                ></select>
               </div>
 
               <div class="col-6 mb-3">
@@ -713,10 +715,13 @@
 
     <script type="module" src="db/CustomerDB.js"></script>
     <script type="module" src="db/ItemDB.js"></script>
-    <script type="module" src="controller/CustomerController.js"></script>
+    <script type="module" src="db/OrderDB.js"></script>
+    <script type="module" src="model/orderDetails.js"></script>
     <script type="module" src="model/Customer.js"></script>
     <script type="module" src="model/Item.js"></script>
     <script type="module" src="controller/ItemController.js"></script>
+    <script type="module" src="controller/CustomerController.js"></script>
+    <script type="module" src="controller/OrderController.js"></script>
 
     <script>
       // Hide All Content
