@@ -1,13 +1,31 @@
 import { getCustomerDB } from "../db/CustomerDB.js";
 import { getItemDB } from "../db/ItemDB.js";
+import { OrderDetails } from "../model/orderDetails.js";
 
 export class OrderController {
   constructor() {
+    this.orderList = [];
+
+    $("#btn_add_Item").click(this.handleAddOrder.bind(this));
     $("#customerID").click(this.loadCustomerDetails.bind(this));
     $("#itemCode").click(this.loadItemDetails.bind(this));
+    $("#orderQty").on("input", this.calculateTotal.bind(this));
 
     this.loadCustomers();
     this.loadItems();
+    this.disableTextField();
+    this.loadOrderItemTable();
+  }
+
+  disableTextField() {
+    $("#cusName").prop("disabled", true);
+    $("#cusSalary").prop("disabled", true);
+    $("#cusAddress").prop("disabled", true);
+
+    $("#itemName").prop("disabled", true);
+    $("#itemPrice").prop("disabled", true);
+    $("#qty").prop("disabled", true);
+    $("#total").prop("disabled", true);
   }
 
   loadCustomers() {
@@ -52,6 +70,76 @@ export class OrderController {
     $("#itemName").val(selectedItems._item_name);
     $("#itemPrice").val(selectedItems._item_price);
     $("#qty").val(selectedItems._item_qty);
+  }
+
+  handleAddOrder() {
+    let orderID = $("#orderId").val();
+    let customerID = JSON.parse($("#customerID").val())._customer_id;
+    let itemCode = JSON.parse($("#itemCode").val())._item_code;
+    let qty = parseInt($("#orderQty").val());
+    let total = parseInt($("#total").val());
+    let price = $("#itemPrice").val();
+
+    if (!orderID || !customerID || !itemCode || !qty || !price) {
+      alert("Please fill all Fields");
+
+      return;
+    }
+
+    let existingOrder = this.orderList.find(
+      (order) => order._item_code === itemCode
+    );
+
+    if (existingOrder) {
+      existingOrder._quantity += qty;
+      existingOrder._total += total;
+    } else {
+      let newOrder = new OrderDetails(
+        orderID,
+        customerID,
+        itemCode,
+        qty,
+        price,
+        total
+      );
+      this.orderList.push(newOrder);
+    }
+    this.loadOrderItemTable();
+    this.calculateOrderTotal();
+  }
+
+  loadOrderItemTable() {
+    let list = this.orderList;
+    $("#orderItemDetal_table").empty();
+    list.forEach((orderDetails) => {
+      $("#orderItemDetal_table").append(
+        `<tr>
+            <td>${orderDetails._order_id}</td>
+            <td>${orderDetails._customer_id}</td>
+            <td>${orderDetails._item_code}</td>
+            <td>${orderDetails._quantity}</td>
+            <td>${orderDetails._total}</td>
+        </tr> `
+      );
+    });
+  }
+
+  calculateTotal() {
+    let qty = $("#orderQty").val();
+    let price = $("#itemPrice").val();
+
+    if (qty && price) {
+      let total = qty * price;
+      $("#total").val(total);
+    }
+  }
+
+  calculateOrderTotal() {
+    let total = 0;
+    this.orderList.forEach((order) => {
+      total += parseInt(order._total);
+    });
+    $("#totalPrice").val(total);
   }
 }
 

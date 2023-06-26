@@ -158,13 +158,13 @@
             </h2>
             <form class="row">
               <div class="col-6 mb-3">
-                <label for="oid" class="col-form-label">Order ID</label>
+                <label for="orderId" class="col-form-label">Order ID</label>
                 <input
                   type="text"
                   class="form-control"
                   placeholder="Enter Order ID"
                   aria-label="Enter Order ID"
-                  id="oid"
+                  id="orderId"
                 />
               </div>
 
@@ -292,8 +292,22 @@
                   id="orderQty"
                 />
               </div>
+              <div class="col mb-4">
+                <label for="total" class="col-form-label">Total</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Total Price"
+                  aria-label="Total Price"
+                  id="total"
+                />
+              </div>
               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button class="btn btn-danger me-md-2 btn-lg" type="button">
+                <button
+                  id="btn_add_Item"
+                  class="btn btn-danger me-md-2 btn-lg"
+                  type="button"
+                >
                   Add Item
                 </button>
               </div>
@@ -302,41 +316,25 @@
           <!-- Col Two End -->
 
           <!-- Col Three Start -->
-          <div class="col m-4 mb-5 bg-light shadow bg-body rounded p-3">
-            <h2 class="text-primary">Total : 1500</h2>
-            <h2 class="text-danger mb-5">SubTotal : 1000</h2>
+          <div class="col m-4 mb-5 bg-light shadow bg-body rounded">
+            <h2
+              class="bg-success text-light p-2 position-relative mb-4"
+              style="right: 12px; width: 109.2%"
+            >
+              Purchase Order
+            </h2>
 
             <form class="row">
-              <div class="col-6 mb-3">
-                <label for="cash" class="col-form-label">Cash</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder=""
-                  aria-label="Enter Cash"
-                  id="cash"
-                />
-              </div>
-
-              <div class="col-6 mb-3">
-                <label for="discount" class="col-form-label">Discount</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder=""
-                  aria-label="Enter Discount"
-                  id="discount"
-                />
-              </div>
-
               <div class="col mb-5">
-                <label for="balance" class="col-form-label">Balance</label>
+                <label for="totalPrice" class="col-form-label"
+                  >Total Price</label
+                >
                 <input
                   type="text"
                   class="form-control"
-                  placeholder=""
-                  aria-label="Enter Balance"
-                  id="balance"
+                  placeholder="Total Price"
+                  aria-label="Total Price"
+                  id="totalPrice"
                 />
               </div>
 
@@ -354,50 +352,16 @@
             <table class="table table-hover table-borderless">
               <thead style="background-color: #00918d">
                 <tr>
+                  <th class="border-end border-white" scope="col">Order ID</th>
+                  <th class="border-end border-white" scope="col">
+                    Customer ID
+                  </th>
                   <th class="border-end border-white" scope="col">Item Code</th>
-                  <th class="border-end border-white" scope="col">Item Name</th>
-                  <th class="border-end border-white" scope="col">Price</th>
                   <th class="border-end border-white" scope="col">Quantity</th>
                   <th scope="col">Total</th>
                 </tr>
               </thead>
-              <tbody class="table-secondary">
-                <tr>
-                  <td>I001</td>
-                  <td>Iphone 7 Plus</td>
-                  <td>70000</td>
-                  <td>10</td>
-                  <td>700000</td>
-                </tr>
-                <tr>
-                  <td>I001</td>
-                  <td>Iphone 7 Plus</td>
-                  <td>70000</td>
-                  <td>10</td>
-                  <td>700000</td>
-                </tr>
-                <tr>
-                  <td>I001</td>
-                  <td>Iphone 7 Plus</td>
-                  <td>70000</td>
-                  <td>10</td>
-                  <td>700000</td>
-                </tr>
-                <tr>
-                  <td>I001</td>
-                  <td>Iphone 7 Plus</td>
-                  <td>70000</td>
-                  <td>10</td>
-                  <td>700000</td>
-                </tr>
-                <tr>
-                  <td>I001</td>
-                  <td>Iphone 7 Plus</td>
-                  <td>70000</td>
-                  <td>10</td>
-                  <td>700000</td>
-                </tr>
-              </tbody>
+              <tbody id="orderItemDetal_table" class="table-secondary"></tbody>
             </table>
           </div>
           <!-- Col four End -->
@@ -718,6 +682,7 @@
     <script type="module" src="db/CustomerDB.js"></script>
     <script type="module" src="db/ItemDB.js"></script>
     <script type="module" src="db/OrderDB.js"></script>
+    <script type="module" src="model/Orders.js"></script>
     <script type="module" src="model/orderDetails.js"></script>
     <script type="module" src="model/Customer.js"></script>
     <script type="module" src="model/Item.js"></script>
