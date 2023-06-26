@@ -1,6 +1,8 @@
 import { getCustomerDB } from "../db/CustomerDB.js";
 import { getItemDB } from "../db/ItemDB.js";
+import { saveOrders } from "../db/OrderDB.js";
 import { OrderDetails } from "../model/orderDetails.js";
+import { Orders } from "../model/Orders.js";
 
 export class OrderController {
   constructor() {
@@ -10,6 +12,7 @@ export class OrderController {
     $("#customerID").click(this.loadCustomerDetails.bind(this));
     $("#itemCode").click(this.loadItemDetails.bind(this));
     $("#orderQty").on("input", this.calculateTotal.bind(this));
+    $("#purchase_order").click(this.purchaseOrder.bind(this));
 
     this.loadCustomers();
     this.loadItems();
@@ -140,6 +143,32 @@ export class OrderController {
       total += parseInt(order._total);
     });
     $("#totalPrice").val(total);
+  }
+
+  purchaseOrder() {
+    let order = saveOrders(new Orders(this.orderList, $("#totalPrice").val()));
+
+    order ? alert("Order Save Successfully") : alert("Error");
+
+    $("#orderItemDetal_table").empty();
+    this.clearTextField();
+  }
+
+  clearTextField() {
+    $("#orderId").val("");
+
+    $("#customerID").append($("<option selected>").text("Select Customer ID"));
+    $("#cusName").val("");
+    $("#cusSalary").val("");
+    $("#cusAddress").val("");
+
+    $("#itemCode").append($("<option selected>").text("Select Item Code"));
+    $("#itemName").val("");
+    $("#itemPrice").val("");
+    $("#qty").val("");
+    $("#total").val("");
+    $("#totalPrice").val("");
+    $("#orderQty").val("");
   }
 }
 
