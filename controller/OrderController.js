@@ -45,7 +45,14 @@ export class OrderController {
     });
   }
 
-  loadItemDetails() {}
+  loadItemDetails() {
+    let selectedOption = $("#itemCode").val();
+    let selectedItems = JSON.parse(selectedOption);
+
+    $("#itemName").val(selectedItems._item_name);
+    $("#itemPrice").val(selectedItems._item_price);
+    $("#qty").val(selectedItems._item_qty);
+  }
 }
 
 new OrderController();
